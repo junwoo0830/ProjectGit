@@ -1,0 +1,35 @@
+﻿<!--Post방식: html페이지에 form형태에서 값을 전달-->
+<html>
+<head></head>
+<body>
+<h1>성적입력추가</h1>
+
+<form method="post" action="insertDB.jsp"> <!--form의 형태 지정 및 전달위치 지정-->
+	<table border=0 cellspacing=1>
+	<tr><td width=280 align=right><input type = "submit" value="추가"></td></tr></table><!--전송 버튼 생성!-->
+	
+	<table border=1 cellspacing=1>
+	<tr>
+	<td width=100><p align=center>이름</p></td>	<!--이름을 입력 받을때 최대 길이는 17글자 크기로 제한-->
+	<td width=230><p align=center><input type = "text" maxlength="17" name="stdName" required></p></td>
+	</tr>
+	<tr>
+	<td width=100><p align=center>학번</p></td>
+	<td width=230><p align=center>자동부여</p></td>
+	</tr>
+	<tr>
+	<td width=100><p align=center>국어</p></td>		<!--국어 성적은 0~100까지 최대 3자리 숫자만 입력 가능하도록 설정-->
+	<td width=230><p align=center><input type = "number" min="0" max="100" maxlength="3" name="kor" required></p></td>
+	</tr>   
+	<tr>
+	<td width=100><p align=center>영어</p></td>		<!--영어 성적은 0~100까지 최대 3자리 숫자만 입력 가능하도록 설정-->
+	<td width=230><p align=center><input type = "number" min="0" max="100" maxlength="3" name="eng" required></p></td>
+	</tr>
+	<tr>
+	<td width=100><p align=center>수학</p></td>		<!--수학 성적은 0~100까지 최대 3자리 숫자만 입력 가능하도록 설정-->
+	<td width=230><p align=center><input type = "number" min="0" max="100" maxlength="3" name="mat" required></p></td>
+	</tr>      	
+</form>
+</table>
+</body>
+</html>

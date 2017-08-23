@@ -1,0 +1,29 @@
+﻿<html>
+<head>
+<script>
+function getData(){
+	var name = prompt("사과, 포도, 배 중에 좋아하는 과일은?","사과");
+	return name;
+}
+</script>
+</head>
+<body>
+<script>
+	var fruit = getData();
+	switch(fruit) {
+		case "사과":
+			document.write("사과가 좋아~" + "<br>");
+			break;
+		case "포도":
+			document.write("포도가 좋아~" + "<br>");
+			break;
+		case "딸기":
+			document.write("배가 좋아~" + "<br>");
+			break;
+		default:
+			document.write("선택지에 없습니다." + "<br>");
+			break;
+	}
+</script>
+</body>
+</html>

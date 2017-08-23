@@ -1,0 +1,114 @@
+﻿<html>
+<head>
+<script>
+var d = new Date();
+	var sec ="";	
+	if(d.getSeconds()<10)
+		sec= "0"+d.getSeconds();
+	else
+		sec=d.getSeconds();
+	var min ="";
+	if(d.getMinutes()<10)
+		min= "0"+d.getMinutes();
+	else
+		min=d.getMinutes();	
+var st = d.getFullYear()+"."+"0"+(d.getMonth()+1)+"."+"0"+d.getDate()+"   "+d.getHours()+":"+min+":"+sec;
+
+function header(){ //성적집계표 heading 정보 출력
+	document.write(
+		"<table width=650 cellspacing=0 cellpadding=0 border=0> "+
+		"<tr><td colspan=7 align=center>성적집계표</td><tr>"+
+		"<tr><td colspan=7 align=right>출력일자 : "+st+"</td><tr>"+
+		"<tr><td colspan=7><hr></td><tr>"+
+		"<tr>"+
+		"	<td width=50 align=right>번 호</td>"+
+		"	<td width=100 align=right>이름</td>"+
+		"	<td width=100 align=right>국어</td>"+
+		"	<td width=100 align=right>영어</td>"+
+		"	<td width=100 align=right>수학</td>"+
+		"	<td width=100 align=right>총점</td>"+
+		"	<td width=100 align=right>평균</td>"+
+		"</tr>"+
+		"<tr><td colspan=7><hr></td><tr>"+
+		"</table>"
+	);
+}
+
+function tail(kor,eng,mat,ave,iPserson){ //성적집계표 tail 정보 출력
+	document.write(
+		"<table width=650 cellspacing=0 cellpadding=0 border=0> "+		
+		"<tr><td colspan=7><hr></td><tr>"+
+		"<tr>"+
+		"	<td width=150 align=left>합계</td>"+
+		"	<td width=100 align=right>"+kor+"</td>"+
+		"	<td width=100 align=right>"+eng+"</td>"+
+		"	<td width=100 align=right>"+mat+"</td>"+
+		"	<td width=100 align=right>"+(kor+eng+mat)+"</td>"+
+		"	<td width=100 align=right>"+ave+"</td>"+
+		"</tr>"+
+		"<tr>"+
+		"	<td width=150 align=left>평균</td>"+
+		"	<td width=100 align=right>"+Math.floor(kor/iPserson)+"</td>"+
+		"	<td width=100 align=right>"+Math.floor(eng/iPserson)+"</td>"+
+		"	<td width=100 align=right>"+Math.floor(mat/iPserson)+"</td>"+
+		"	<td width=100 align=right>"+Math.floor((kor+eng+mat)/iPserson)+"</td>"+
+		"	<td width=100 align=right>"+Math.floor(ave/iPserson)+"</td>"+
+		"</tr>"+
+		"<tr><td colspan=7><hr></td><tr>"+
+		"</table>"
+	);
+}
+
+
+</script>
+</head>
+<body>
+<script>
+	header(); //성적집계표 heading 정보 출력
+	var iPserson =30;
+	var sumKor=0;
+	var sumEng=0;
+	var sumMat=0;
+	var sumSum=0;
+	var kor=0;
+	var eng=0;
+	var mat=0;
+	var sumAve=0;
+	var numbers="";
+	//성적집계표 학생 정보 출력
+	for(var i=0; i<iPserson; i++){
+		kor= Math.floor(Math.random()*100);
+		eng=Math.floor(Math.random()*100);
+		mat=Math.floor(Math.random()*100);
+		sumKor+=kor;
+		sumEng+=eng;
+		sumMat+=mat;
+		sumSum+=(kor+eng+mat);
+		sumAve+=Math.floor((kor+eng+mat)/3);
+		if(i<9)
+			numbers="0"+(i+1);
+		else 
+			numbers=(i+1);
+		document.write(
+		"<table width=650 cellspacing=0 cellpadding=0 border=0> "+		
+		"<tr>"+
+		"	<td width=50 align=right>"+numbers+"</td>"+
+		"	<td width=100 align=right>"+"홍길"+numbers+"</td>"+
+		"	<td width=100 align=right>"+kor+"</td>"+
+		"	<td width=100 align=right>"+eng+"</td>"+
+		"	<td width=100 align=right>"+mat+"</td>"+
+		"	<td width=100 align=right>"+(kor+eng+mat)+"</td>"+
+		"	<td width=100 align=right>"+Math.floor((kor+eng+mat)/3)+"</td>"+
+		"</tr>"+
+		"</table>"
+		);
+	}
+	tail(sumKor,sumEng,sumMat,sumAve,iPserson); //성적집계표 tail 정보 출력
+	
+		
+
+</script> 
+
+
+</body>
+</html>

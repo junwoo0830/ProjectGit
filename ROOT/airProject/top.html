@@ -1,0 +1,114 @@
+﻿<!doctype thml>
+<html>
+<head>
+	<title>항고예약</title>
+<style type = 'text/css'>
+td {font-size:12; text-align:center;}	
+a:link {color:black; text-decoration:none;}
+a:visited {color:black; text-decoration:none;}
+a:hover {color:red; text-decoration:none;}
+a:acvite {color:black; text-decoration:none;}
+</style>
+<script language='javasript' type='text/javascript'>
+var muCnt = 4;
+function fncShow(pos){
+	var i=0;
+	for(i; i<muCnt; i++) {
+		var obj = document.getElementById("menu"+i);
+		var obj2 = document.getElementById("m"+i);		
+		if( i == pos) {
+			obj.style.display = "";
+			obj2.style.color = "#000000";
+			
+		}else {
+			obj.style.display = "none";
+			obj2.style.color = "#ffffff";
+		}
+	}
+
+} 
+
+function funHide(pos){
+	var obj = document.getElementById("menu"+pos);
+	obj.style.display = "none";
+}
+</script>
+</head>
+<body bgcolor="#ff6600">
+<center>
+<table cellpadding='0' cellspacing='1' border=0 width=750>
+
+<td width=150><a href="main.jsp" target=main><img src="junwooair.PNG" width=250 height=80 border=0></a>
+</td>
+<td>
+<table cellpadding=0 cellspacing=1 border=0 width=610 height=60>
+	<tr height=30>
+		<td width=100 onmouseover='fncShow(0);' id='m0'><b>JUNWOOAIR</b></td>
+		<td width=100 onmouseover='fncShow(1);' id='m1'><b>좌석예약</b></td>
+		<td width=100 onmouseover='fncShow(2);' id='m2'><b>공지사항</b></td>
+		<td width=300 onmouseover='fncShow(3);' id='m3' align=left><b><img src="main.JPG" width=20 height=20> 나의계정</b></td>		
+		</td>
+	</tr>
+	<tr height=30>
+		<td colspan=6>
+			<table id='menu0' style='display:"none";' cellpadding=0 cellspacing=0 border=0 width=600 height=30>
+				<tr>
+					<td width=0> </td>
+					<td width=600 style='text-align:left;'>
+						<a href='main.jsp' target=main>
+						<span onmouseover=this.style.color='#000000' onmouseout=this.style.color='#ffffff'>| JUNWOOAIR </span>
+						</a>
+						<a href='a_01.html' target=main>
+						<span onmouseover=this.style.color='#000000' onmouseout=this.style.color='#ffffff'>| 항공기안내</span>
+						</a>
+						<a href='a_02.html' target=main>
+						<span onmouseover=this.style.color='#000000' onmouseout=this.style.color='#ffffff'>| 운행지역안내 </span>
+						</a>
+						<a href='a_03.html' target=main>
+						<span onmouseover=this.style.color='#000000' onmouseout=this.style.color='#ffffff'>| 운행요금안내 |</span>
+						</a>
+					</td>
+				</tr>
+			</table>
+			<table id='menu1' style='display:none;' cellpadding=0 cellspacing=0 border=0 width=600 height=30>
+				<tr>
+					<td width=130> </td>
+					<td width=500 style='text-align:left;'>
+						<a href='b_01.jsp' target=main>
+						<span onmouseover=this.style.color='#000000' onmouseout=this.style.color='#ffffff'>| 좌석예약 |</span>
+						</a>					
+					</td>
+				</tr>
+			</table>
+			<table id='menu2' style='display:none;' cellpadding=0 cellspacing=0 border=0 width=600 height=30>
+				<tr>
+					<td width=200> </td>
+					<td width=400 style='text-align:left;'>
+						<a href='e01/e_01.jsp' target=main>
+						<span onmouseover=this.style.color='#000000' onmouseout=this.style.color='#ffffff'>| 알리는 글 </span>
+						</a>
+						<a href='e02/e_02.jsp' target=main>
+						<span onmouseover=this.style.color='#000000' onmouseout=this.style.color='#ffffff'>| 고객의 소리 |</span>
+						</a>					
+					</td>
+				</tr>
+			</table>
+			<table id='menu3' style='display:none;' cellpadding=0 cellspacing=0 border=0 width=610 height=30>
+				<tr>
+					<td width=400> </td>
+					<td width=300 style='text-align:left;'>						
+						<a href='login/adm_allview.jsp' target=main>
+						<span onmouseover=this.style.color='#000000' onmouseout=this.style.color='#ffffff'>| 나의페이지 </span>
+						</a>
+						<a href='login/adm_logout.jsp' target=main>
+						<span onmouseover=this.style.color='#000000' onmouseout=this.style.color='#ffffff'>| 로그오프 |</span>
+						</a>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>		
+</table>
+</td></table></center>
+</body>
+</html>

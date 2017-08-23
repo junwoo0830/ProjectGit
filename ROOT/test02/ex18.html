@@ -1,0 +1,18 @@
+<html>
+<head>
+<script>
+document.write("Hello world!");
+</script>
+</head>
+<body>
+<script>
+<!--output으로 이름지어진 문서에 내용을 덮어 씌운다-->
+doc=open("","output");
+doc.document.write("<head><h1>hello</h1></head>");
+doc.document.close();
+</script>
+
+<br>Test Document <br> 
+Good...
+</body>
+</html>

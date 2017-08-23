@@ -1,0 +1,42 @@
+﻿<!--Post방식: html페이지에 form형태에서 값을 전달-->
+<html>
+<head>
+
+</head>
+<body>
+<h1>성적 조회후 정정/삭제</h1>
+
+<form method="post" action="showREC.jsp"> <!--form의 형태 지정 및 전달위치 지정-->
+	<table border=0 cellspacing=1>
+	<tr>
+		<td width=100 align=center>조회할 학번</td>  <!--조회 번호를 입력 받아 showREC로 학번을 보낸다-->
+		<td width=100><input type = "number" name="stdID" required></td>
+		<td width=60 align=right><input type = "submit" value="조회"></td>
+	</tr>
+	</table><!--전송 버튼 생성!-->
+	
+	<table border=1 cellspacing=1>
+	<tr>
+	<td width=100><p align=center>이름</p></td>
+	<td width=230><p align=center><input type = "text"></p></td>
+	</tr>
+	<tr>
+	<td width=100><p align=center>학번</p></td>
+	<td width=230><p align=center><input type = "number"></p></td>
+	</tr>
+	<tr>
+	<td width=100><p align=center>국어</p></td>
+	<td width=230><p align=center><input type = "number" min="0" max="100" maxlength="3" ></p></td>
+	</tr>   
+	<tr>
+	<td width=100><p align=center>영어</p></td>
+	<td width=230><p align=center><input type = "number" min="0" max="100" maxlength="3" ></p></td>
+	</tr>
+	<tr>
+	<td width=100><p align=center>수학</p></td>
+	<td width=230><p align=center><input type = "number" min="0" max="100" maxlength="3" ></p></td>
+	</tr>      	
+</form>
+</table>
+</body>
+</html>

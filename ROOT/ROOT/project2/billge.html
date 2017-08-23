@@ -1,0 +1,129 @@
+﻿<html>
+<head>
+<script>
+function numberConvert(x){
+	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+</script>
+</head>
+<body>
+<script>
+	var d = new Date();
+	var min ="";
+	if(d.getMinutes()<10)
+		min= "0"+d.getMinutes();
+	else
+		min=d.getMinutes();	
+	var st = d.getFullYear()+"-"+"0"+(d.getMonth()+1)+"-"+"0"+d.getDate()+"   "+d.getHours()+":"+min;
+	document.write(
+		"<table width=825 border=0 cellspacing=0 cellpadding=0>"+
+		"	<tr>"+
+		"		<td rowspan=3 align=center><b><h2>emart</h2></b></td>"+
+		"		<td>이마트 죽전점 (031)888-1234</td>"+
+		"	</tr>"+
+		"	<tr>"+
+		"		<td>206-86-50913 이갑수</td>"+
+		"	</tr>"+
+		"	<tr>"+
+		"		<td>용인시 수지구 포은대로 552</td>"+
+		"	</tr>"+
+		"	<tr><td>영수증 미지참시 교환/환불 불가(30일내)</td><tr>"+
+		"	<tr><td>교환/환불 구매점에서 가능(결제카드지참)</td><tr>"+
+		"	<tr><td>체크카드/신용카드 청구취소 반영은</td><tr>"+
+		"	<tr><td>최대 3~5일 소요 (주말,공휴일제외)</td><tr>"+
+		"	<tr>"+
+		"	<td>[구매]"+st+"</td>"+
+		"	<td align=right>POS: 0009-2418</td>"+
+		"	<tr>"+
+		"	<tr><td colspan=2><Hr></td></tr>	"+
+		"</table>"
+	);
+
+	itemname = new Array("카카오s오오ssssssssssss오오오오오오오오오오오오","바나나","딸기","초코우@  sssdfsdf유","바나나우유","Cass500ml","진짜한우한마리","목우촌햄","오징어","땅콩",
+				"파김치","채끗살","에버라틴","청송사과1box","냉동참치","동원참치","카누","삼다수","빠다코코넛",
+				"몽퀠","물티슈","건포토","아이스커피","삼겹살","오겹살","오리한마리","파송송개란탁","초코에몽","구구콘","아침햇살 aaa((((아이눈부셔(123_");
+	price = new Array(1000,2500,3300,25000,100,5000,300,19000,2200,1000,1900,3300,25000,100,5000,300,800,100000,400,90000,100,9000,1200,12500,160000,4000,6000,20,1100,1250);
+	num = new Array(2000,4,1,1,5,1,2,500,4,8,9,2,10,15,22,3,4,5,8,7,10,2,35,100000,5,4,2,50,44,12);
+	taxfree = new Array(true,false,false,false,true,true,false,false,false,true,true,false,false,false,true,false,false,false,true,true,false,false,false,true,false,false,false,true,true,false);			
+	var star="";
+	var tax=0;
+	var notax=0;
+	document.write("<table width=825 border=0 cellspacing=0 cellpadding=0>");
+	document.write(
+		"	<tr>"+
+		"	<td width=15></td>"+
+		"	<td width=10></td>"+
+		"	<td width=200><b>상품명</b></td>"+
+		"	<td width=200 align=right><b>단가</b></td>"+
+		"	<td width=200 align=right><b>수량</b></td>"+
+		"	<td width=200 align=right><b>금액</b></td>"+
+		"	</tr>"+
+		"	<tr><td colspan=6><hr></td><tr>"
+	);	
+	var numbers=""
+	for(i=0;i<itemname.length;i++){
+		if(taxfree[i]){
+			star="*";
+			notax += (price[i]*num[i]);			
+		}
+		else{
+			star="";
+			tax	+= (price[i]*num[i]);		
+		}
+		if(i<9)
+			numbers="0"+(i+1);
+		else 
+			numbers=(i+1);
+		document.write(	
+			"<tr>"+
+			"<td width=15 align=right>"+numbers+"</td>"+
+			"<td width=10>"+star+"</td>"+
+			"<td width=200>"+itemname[i].substr(0,11)+"</td>"+
+			"<td width=200 align=right>"+numberConvert(price[i])+"</td>"+
+			"<td width=200 align=right>"+numberConvert(num[i])+"</td>"+
+			"<td width=200 align=right>"+numberConvert(price[i]*num[i])+"</td>"+
+			"</tr>"	);
+	}
+	document.write("</table>");		
+	var taxsel = Math.floor(tax/1.1)
+	var sel = Math.floor(tax-(tax/1.1));
+	if(sel != (tax-(tax/1.1)))		
+		sel=Math.floor(sel+1);
+	document.write("<table width=825 border=0 cellspacing=0 cellpadding=0>");
+	document.write(	
+			"<tr>"+ 
+			"<td width=625 align=right><b>"+"(*)면&nbsp세&nbsp물&nbsp품"+"</b></td>"+
+			"<td width=200 align=right><b>"+numberConvert(notax)+"</b></td>"+
+			"</tr>"+	
+			"<tr>"+
+			"<td width=625 align=right><b>"+"과&nbsp세&nbsp물&nbsp품"+"</b></td>"+
+			"<td width=200 align=right><b>"+numberConvert(taxsel)+"</b></td>"+
+			"</tr>"+
+			"<tr>"+
+			"<td width=625 align=right><b>"+"부&nbsp&nbsp&nbsp과&nbsp&nbsp&nbsp&nbsp세"+"</b></td>"+
+			"<td width=200 align=right><b>"+numberConvert(sel)+"</b></td>"+
+			"</tr>"+
+			"<tr>"+
+			"<td width=625 align=right><b>"+"합&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp계"+"</b></td>"+
+			"<td width=200 align=right><b>"+numberConvert(notax+sel+taxsel)+"</b></td>"+
+			"</tr>"+
+			"<tr>"+
+			"<td width=625 align=left><b>"+"결&nbsp제&nbsp대&nbsp상&nbsp금&nbsp액"+"</b></td>"+
+			"<td width=200 align=right><b>"+numberConvert(notax+sel+taxsel)+"</b></td>"+
+			"</tr>"+
+			"<tr><td colspan =2><hr></td></tr>"+
+			"<tr>"+
+			"<td width=625 align=left><b>"+"0024&nbsp하&nbsp나"+"</b></td>"+
+			"<td width=200 align=right><b>"+"5417**8890/07850246"+"</b></td>"+
+			"</tr>"+
+			"<tr>"+
+			"<td width=625 align=left><b>"+"카&nbsp드&nbsp결&nbsp제"+"</b></td>"+
+			"<td width=200 align=right><b>"+"일시불/&nbsp&nbsp&nbsp"+numberConvert(notax+sel+taxsel)+"</b></td>"+
+			"</tr>"+
+			"<tr><td colspan =2><hr></td></tr>"+
+			"<tr><td colspan =2 >홍*두 고객님의 포인트 현황입니다.</td></tr>"
+			);	
+	document.write("</table>");
+</script>
+</body>
+</html>
